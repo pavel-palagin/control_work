@@ -1,4 +1,4 @@
-﻿// Написать программу, которая из имеющегося массива строк формирует массив строк, длинна которых меньше либо равна 3 символа
+﻿// Написать программу, которая из имеющегося массива строк формирует массив строк, длина которых меньше либо равна 3 символа
 
 int Promt(string message)
 {
@@ -27,4 +27,33 @@ void PrintArray(string[] collection)
     Console.Write(collection[collection.Length - 1] + "]");
 }
 
+int size = Promt("Введите количество элементов в массиве: ");
+int maxLength = 3;
 
+string[] array = new string[size];
+
+
+EnterArray(array);
+PrintArray(array);
+
+Console.WriteLine();
+
+string[] newArray = new string[array.Length];
+int index = 0;
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i].Length <= maxLength)
+    {
+        newArray[index] = array[i];
+        index++;
+    }
+}
+
+string[] arr = new string[index];
+for (int i = 0; i < arr.Length; i++)
+{
+    arr[i] = newArray[i];
+}
+
+Console.WriteLine("Вывод массива с элементами, в которых количество символов меньше либо равно 3-м: ");
+PrintArray(arr);
